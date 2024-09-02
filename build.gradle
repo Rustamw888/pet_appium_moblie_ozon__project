@@ -26,7 +26,8 @@ dependencies {
             "org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testRuntimeOnly(
             "org.slf4j:slf4j-simple:$slf4jVersion",
-            "org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+            "org.junit.jupiter:junit-jupiter-engine:$junitVersion",
+            "io.qameta.allure:allure-java-commons:$allureVersion")
 }
 
 test {
@@ -38,4 +39,25 @@ test {
             exceptionFormat "short"
         }
     }
+
+    // Установка системного свойства file.encoding в UTF-8 для тестов
+    systemProperty 'file.encoding', 'UTF-8'
+}
+
+// Настройка кодировки для Javadoc
+javadoc {
+    options {
+        encoding "UTF-8"
+        charSet 'UTF-8'
+    }
+}
+
+// Настройка кодировки для компиляции
+compileJava {
+    options.encoding = "UTF-8"
+}
+
+// Настройка кодировки для всей JVM
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }

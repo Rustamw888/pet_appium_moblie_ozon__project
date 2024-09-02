@@ -29,7 +29,7 @@ public class EmulatorDriver implements WebDriverProvider {
     private static String APP_PACKAGE = ConfigReader.emulatorConfig.appPackage();
     private static String APP_ACTIVITY = ConfigReader.emulatorConfig.appActivity();
     private static final String APP = ConfigReader.emulatorConfig.app();
-    private static final String URL = ConfigReader.emulatorConfig.remoteURL();
+    private static final String URL1 = ConfigReader.emulatorConfig.remoteURL();
 
     /**
      * Валидация URL ссылки из пропертей
@@ -37,7 +37,7 @@ public class EmulatorDriver implements WebDriverProvider {
      */
     public static URL getUrl() {
         try {
-            return new URL(URL);
+            return new URL(URL1);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -83,7 +83,7 @@ public class EmulatorDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("appActivity", APP_ACTIVITY);
 
         desiredCapabilities.setCapability("app", getAbsolutePath(APP));
-         driver = new AndroidDriver<>(getUrl(), desiredCapabilities);
-         return driver;
+        driver = new AndroidDriver<>(getUrl(), desiredCapabilities);
+        return driver;
     }
 }

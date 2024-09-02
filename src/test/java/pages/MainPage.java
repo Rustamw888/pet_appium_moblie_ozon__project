@@ -22,7 +22,7 @@ import io.qameta.allure.Step;
  */
 public class MainPage extends SearchPage {
 
-    private SelenideElement catalogButton = $(MobileBy.id("menu_catalog"));
+    private SelenideElement catalogButton = $(MobileBy.id("categoryIv"));
     private ElementsCollection categories = $$(MobileBy.id("titleTv"));
     private SelenideElement mainMenuIcon = $(MobileBy.id("menu_main"));
     private SelenideElement adPopUp = $(MobileBy.id("commonBtnSA"));
